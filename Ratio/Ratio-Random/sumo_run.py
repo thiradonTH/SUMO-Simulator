@@ -54,7 +54,7 @@ while traci.simulation.getMinExpectedNumber() > 0:
         
         vehicles=traci.vehicle.getIDList();
         trafficlights=traci.trafficlight.getIDList();
-        if t >= 300:
+        if t >= 360:
             print(getdatetime())
             car_in_lane = car_count(vehicles, getdatetime())
             for k in range(0,len(trafficlights)):

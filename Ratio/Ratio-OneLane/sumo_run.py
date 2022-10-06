@@ -54,84 +54,84 @@ while traci.simulation.getMinExpectedNumber() > 0:
         
         vehicles=traci.vehicle.getIDList();
         trafficlights=traci.trafficlight.getIDList();
-        # if t >= 300:
-        #     print(getdatetime())
-        #     car_in_lane = car_count(vehicles, getdatetime())
-        #     for k in range(0,len(trafficlights)):
-        #         print(trafficlights[k])
-        #         s = 0
-        #         for e in tfl_lane[trafficlights[k]]:
-        #             if e in car_in_lane.keys():
-        #                 print(e, "have", car_in_lane[e])
-        #             else:
-        #                 car_in_lane[e] = 0
-        #                 print(e, "have", car_in_lane[e])
-        #             s+= car_in_lane[e]
-        #         print("sum", s)
-        #         if s != 0:
-        #             for e in tfl_lane[trafficlights[k]]:
-        #                 p = car_in_lane[e] * 106 // s
-        #                 tfl_duration[trafficlights[k]][e] = p + 3
-        #                 print(e, "duration", tfl_duration[trafficlights[k]][e])
-        #     t = 0
-        # if t == 0:
-        #     traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["E3_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["E3_0"])
-        #     traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E5_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E5_0"])
+        if t >= 300:
+            print(getdatetime())
+            car_in_lane = car_count(vehicles, getdatetime())
+            for k in range(0,len(trafficlights)):
+                print(trafficlights[k])
+                s = 0
+                for e in tfl_lane[trafficlights[k]]:
+                    if e in car_in_lane.keys():
+                        print(e, "have", car_in_lane[e])
+                    else:
+                        car_in_lane[e] = 0
+                        print(e, "have", car_in_lane[e])
+                    s+= car_in_lane[e]
+                print("sum", s)
+                if s != 0:
+                    for e in tfl_lane[trafficlights[k]]:
+                        p = car_in_lane[e] * 106 // s
+                        tfl_duration[trafficlights[k]][e] = p + 3
+                        print(e, "duration", tfl_duration[trafficlights[k]][e])
+            t = 0
+        if t == 0:
+            traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["E3_0"])
+            traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["E3_0"])
+            traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E5_0"])
+            traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E5_0"])
 
         
-        # if t == tfl_duration["J0"]["E3_0"] * 2:
-        #     traci.trafficlight.setPhaseDuration("J0", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J0", "yyyrrrrrrrrr")
-        # if t  == (tfl_duration["J0"]["E3_0"] + 3) * 2:
-        #     traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["-E2_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["-E2_0"])
-        # if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"]) * 2:
-        #     traci.trafficlight.setPhaseDuration("J0", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J0", "rrryyyrrrrrr")
-        # if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3) * 2:
-        #     traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["-E1_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["-E1_0"])
-        # if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"]) * 2:
-        #     traci.trafficlight.setPhaseDuration("J0", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J0", "rrrrrryyyrrr")     
-        # if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"] + 3) * 2:
-        #     traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["-E0_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["-E0_0"])
-        # if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"] + 3 + tfl_duration["J0"]["-E0_0"])*2:
-        #     traci.trafficlight.setPhaseDuration("J0", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J0", "rrrrrrrrryyy")
-        # if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"] + 3 + tfl_duration["J0"]["-E0_0"] + 3)*2:
-        #     traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["E3_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["E3_0"])
+        if t == tfl_duration["J0"]["E3_0"] * 2:
+            traci.trafficlight.setPhaseDuration("J0", 3)
+            traci.trafficlight.setRedYellowGreenState("J0", "yyyrrrrrrrrr")
+        if t  == (tfl_duration["J0"]["E3_0"] + 3) * 2:
+            traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["-E2_0"])
+            traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["-E2_0"])
+        if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"]) * 2:
+            traci.trafficlight.setPhaseDuration("J0", 3)
+            traci.trafficlight.setRedYellowGreenState("J0", "rrryyyrrrrrr")
+        if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3) * 2:
+            traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["-E1_0"])
+            traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["-E1_0"])
+        if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"]) * 2:
+            traci.trafficlight.setPhaseDuration("J0", 3)
+            traci.trafficlight.setRedYellowGreenState("J0", "rrrrrryyyrrr")     
+        if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"] + 3) * 2:
+            traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["-E0_0"])
+            traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["-E0_0"])
+        if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"] + 3 + tfl_duration["J0"]["-E0_0"])*2:
+            traci.trafficlight.setPhaseDuration("J0", 3)
+            traci.trafficlight.setRedYellowGreenState("J0", "rrrrrrrrryyy")
+        if t == (tfl_duration["J0"]["E3_0"] + 3 + tfl_duration["J0"]["-E2_0"] + 3 + tfl_duration["J0"]["-E1_0"] + 3 + tfl_duration["J0"]["-E0_0"] + 3)*2:
+            traci.trafficlight.setPhaseDuration("J0", tfl_duration["J0"]["E3_0"])
+            traci.trafficlight.setRedYellowGreenState("J0", tfl_phase["J0"]["E3_0"])
 
-        # if t == (tfl_duration["J5"]["-E5_0"])*2:
-        #     traci.trafficlight.setPhaseDuration("J5", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J5", "yyyrrrrrrrrr")
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3)*2:
-        #     traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["E4_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["E4_0"])
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"])*2:
-        #     traci.trafficlight.setPhaseDuration("J5", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J5", "rrryyyrrrrrr")
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3)*2:
-        #     traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E6_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E6_0"])
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"])*2:
-        #     traci.trafficlight.setPhaseDuration("J5", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J5", "rrrrrryyyrrr")     
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"] + 3)*2:
-        #     traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E7_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E7_0"])
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"] + 3 + tfl_duration["J5"]["-E7_0"])*2:
-        #     traci.trafficlight.setPhaseDuration("J5", 3)
-        #     traci.trafficlight.setRedYellowGreenState("J5", "rrrrrrrrryyy")
-        # if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"] + 3 + tfl_duration["J5"]["-E7_0"] + 3)*2:
-        #     traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E5_0"])
-        #     traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E5_0"])
+        if t == (tfl_duration["J5"]["-E5_0"])*2:
+            traci.trafficlight.setPhaseDuration("J5", 3)
+            traci.trafficlight.setRedYellowGreenState("J5", "yyyrrrrrrrrr")
+        if t == (tfl_duration["J5"]["-E5_0"] + 3)*2:
+            traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["E4_0"])
+            traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["E4_0"])
+        if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"])*2:
+            traci.trafficlight.setPhaseDuration("J5", 3)
+            traci.trafficlight.setRedYellowGreenState("J5", "rrryyyrrrrrr")
+        if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3)*2:
+            traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E6_0"])
+            traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E6_0"])
+        if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"])*2:
+            traci.trafficlight.setPhaseDuration("J5", 3)
+            traci.trafficlight.setRedYellowGreenState("J5", "rrrrrryyyrrr")     
+        if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"] + 3)*2:
+            traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E7_0"])
+            traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E7_0"])
+        if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"] + 3 + tfl_duration["J5"]["-E7_0"])*2:
+            traci.trafficlight.setPhaseDuration("J5", 3)
+            traci.trafficlight.setRedYellowGreenState("J5", "rrrrrrrrryyy")
+        if t == (tfl_duration["J5"]["-E5_0"] + 3 + tfl_duration["J5"]["E4_0"] + 3 + tfl_duration["J5"]["-E6_0"] + 3 + tfl_duration["J5"]["-E7_0"] + 3)*2:
+            traci.trafficlight.setPhaseDuration("J5", tfl_duration["J5"]["-E5_0"])
+            traci.trafficlight.setRedYellowGreenState("J5", tfl_phase["J5"]["-E5_0"])
          
-            # print(car_in_lane)
+            print(car_in_lane)
         # car_count(vehicles, getdatetime())
         for i in range(0,len(vehicles)):
 
